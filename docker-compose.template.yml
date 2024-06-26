@@ -1,0 +1,15 @@
+services:
+  quick_nginx:
+    container_name: quick_nginx
+    image: nginx
+    volumes:
+      # local:docker
+      - './nginx.conf:/etc/nginx/nginx.conf'
+      - './localhost.key:/etc/nginx/certs/localhost.key'
+      - './localhost.crt:/etc/nginx/certs/localhost.crt'
+      - './local_webserver:/var/www'
+    ports:
+      # local:docker
+      - "80:80/tcp"
+      - "443:443/tcp"
+    restart: no
